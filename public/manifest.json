@@ -1,0 +1,31 @@
+{
+    "manifest_version": 3,
+    "name": "Spotify Song Counter",
+    "version": "1.0",
+    "description": "Counts the number of songs heard on the spotify web",
+    "action": {
+        "default_popup": "index.html",
+        "default_icon": "icon.png"
+    },
+    "permissions": [
+        "storage",
+        "tabs",
+        "scripting"
+    ],
+    "host_permissions": [
+        "https://open.spotify.com/*"
+    ],
+    "background": {
+        "service_worker": "background.js"
+    },
+    "content_scripts": [
+        {
+            "matches": [
+                "https://open.spotify.com/*"
+            ],
+            "js": [
+                "content.js"
+            ]
+        }
+    ]
+}
